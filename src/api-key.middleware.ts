@@ -19,7 +19,7 @@ export class ApiKeyMiddleware implements NestMiddleware {
     const apiKeyExists = await this.apiKeyService.checkApiKey(apiKey as string);
 
     if (!apiKeyExists) {
-      return res.status(403).json({ message: 'Invalid API Key' });
+      return res.status(403).json({ message: 'Invalid API Key or expired' });
     }
 
     next();

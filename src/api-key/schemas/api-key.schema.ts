@@ -10,6 +10,9 @@ export class ApiKey {
 
   @Prop()
   type: string;
+
+  @Prop()
+  expirationDate: string;
 }
 
 export const ApiKeySchema = SchemaFactory.createForClass(ApiKey);

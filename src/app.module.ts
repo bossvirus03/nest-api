@@ -6,6 +6,8 @@ import { ApiKeyModule } from './api-key/api-key.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { softDeletePlugin } from 'soft-delete-plugin-mongoose';
 import { ApiKeyMiddleware } from './api-key.middleware';
+import { DlModule } from './dl/dl.module';
+import { SimsimiModule } from './simsimi/simsimi.module';
 @Module({
   imports: [
     MongooseModule.forRootAsync({
@@ -24,6 +26,8 @@ import { ApiKeyMiddleware } from './api-key.middleware';
       isGlobal: true,
     }),
     ApiKeyModule,
+    DlModule,
+    SimsimiModule,
   ],
   controllers: [AppController],
   providers: [AppService],
