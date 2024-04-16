@@ -34,6 +34,6 @@ import { SimsimiModule } from './simsimi/simsimi.module';
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(ApiKeyMiddleware).forRoutes('/');
+    consumer.apply(ApiKeyMiddleware).forRoutes('/dl');
   }
 }
