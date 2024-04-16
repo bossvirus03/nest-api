@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import * as puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
 @Injectable()
 export class DlService {
   async dowloadTikTok(url: string) {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    const SBR_WS_ENDPOINT = `${process.env.SBR_WS_ENDPOINT}`;
+    console.log(SBR_WS_ENDPOINT);
+    const browser = await puppeteer.connect({
+      browserWSEndpoint: SBR_WS_ENDPOINT,
     });
     const page = await browser.newPage();
     await page.goto('https://snaptik.app/vn');
@@ -30,9 +31,9 @@ export class DlService {
     };
   }
   async downloadFacebook(url: string) {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    const SBR_WS_ENDPOINT = `${process.env.SBR_WS_ENDPOINT}`;
+    const browser = await puppeteer.connect({
+      browserWSEndpoint: SBR_WS_ENDPOINT,
     });
     const page = await browser.newPage();
     await page.goto('https://www.getfvid.com/vi');
@@ -59,9 +60,9 @@ export class DlService {
     };
   }
   async downloadPinterest(url: string) {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    const SBR_WS_ENDPOINT = `${process.env.SBR_WS_ENDPOINT}`;
+    const browser = await puppeteer.connect({
+      browserWSEndpoint: SBR_WS_ENDPOINT,
     });
     const page = await browser.newPage();
     await page.goto('https://pinterestdownloader.com/vi');
@@ -86,9 +87,9 @@ export class DlService {
     };
   }
   async dowloadInstagram(url: string) {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    const SBR_WS_ENDPOINT = `${process.env.SBR_WS_ENDPOINT}`;
+    const browser = await puppeteer.connect({
+      browserWSEndpoint: SBR_WS_ENDPOINT,
     });
     const page = await browser.newPage();
     await page.goto('https://igdownloader.app/vi');
