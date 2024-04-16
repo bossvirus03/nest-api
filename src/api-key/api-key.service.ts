@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { InjectModel } from '@nestjs/mongoose';
 import { ApiKey, ApiKeyDocument } from './schemas/api-key.schema';
 import { SoftDeleteModel } from 'soft-delete-plugin-mongoose';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 @Injectable()
 export class ApiKeyService {
   @InjectModel(ApiKey.name)

@@ -1,12 +1,10 @@
 import { Injectable } from '@nestjs/common';
-// import axios from 'axios';
-// import * as cheerio from 'cheerio';
 import * as puppeteer from 'puppeteer';
 @Injectable()
 export class DlService {
   async dowloadTikTok(url: string) {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
@@ -33,7 +31,7 @@ export class DlService {
   }
   async downloadFacebook(url: string) {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
@@ -62,7 +60,7 @@ export class DlService {
   }
   async downloadPinterest(url: string) {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
@@ -89,7 +87,7 @@ export class DlService {
   }
   async dowloadInstagram(url: string) {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
