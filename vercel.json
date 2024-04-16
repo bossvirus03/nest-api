@@ -5,5 +5,18 @@
             "src": "dist/main.js",
             "use": "@vercel/node"
         }
+    ],
+    "routers": [
+        {
+            "src": "/(.*)",
+            "dest": "/src/main.ts",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE"
+            ]
+        }
     ]
 }
