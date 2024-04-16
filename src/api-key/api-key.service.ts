@@ -21,11 +21,18 @@ export class ApiKeyService {
   async checkApiKey(apiKey: string): Promise<boolean> {
     const today = dayjs();
     const foundApiKey = await this.apiKeyModel.findOne({ apiKey }).exec();
-    const dateToCompare = dayjs(foundApiKey.expirationDate, 'MM/DD/YYYY');
-    if (foundApiKey.expirationDate && foundApiKey.expirationDate == 'NEVER') {
-      return true;
-    } else if (foundApiKey.expirationDate && dateToCompare.isAfter(today)) {
-      return true;
+
+    if (foundApiKey) {
+      const dateToCompare = dayjs(foundApiKey.expirationDate, 'MM/DD/YYYY');
+
+      if (
+        foundApiKey.expirationDate === 'NEVER' ||
+        dateToCompare.isAfter(today)
+      ) {
+        return true;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
